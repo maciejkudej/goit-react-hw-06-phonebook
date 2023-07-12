@@ -5,10 +5,11 @@ import css from './App.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact, remove } from 'redux/myContactSlice';
 import { contactFilter } from 'redux/myFilterSlice';
+import { selectContacts, selectFilter } from 'redux/selectors';
 
 export default function App() {
-  const contacts = useSelector(state => state.contacts);
-  const filter = useSelector(state => state.filter.filter);
+  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
   const addContacts = ({ id, name, number }) => {

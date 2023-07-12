@@ -3,15 +3,19 @@ import { defaultItem } from 'utils/DefaultItem';
 
 export const myContactSlice = createSlice({
   name: 'contacts',
-  initialState: defaultItem,
+  initialState: {
+    contacts: defaultItem,
+  },
   reducers: {
     addContact(state, action) {
-      state.push(action.payload);
+      state.contacts.push(action.payload);
     },
 
     remove(state, action) {
-      const index = state.findIndex(task => task.id === action.payload);
-      state.splice(index, 1);
+      const index = state.contacts.findIndex(
+        task => task.id === action.payload
+      );
+      state.contacts.splice(index, 1);
     },
   },
 });
